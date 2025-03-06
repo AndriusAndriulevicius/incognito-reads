@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Sc9tPqCsmVQ=",
+  "dgSpecHash": "oMMnKprPybQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\andri\\Desktop\\IncognitoReads\\IncognitoReads\\IncognitoReads.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\andri\\.nuget\\packages\\microsoft.net.sdk.compilers.toolset\\9.0.200\\microsoft.net.sdk.compilers.toolset.9.0.200.nupkg.sha512"
+  ],
   "logs": []
 }
