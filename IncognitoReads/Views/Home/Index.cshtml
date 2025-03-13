@@ -2,6 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
+<nav class="main-nav">
+    <ul class="nav-links">
+        <li><a asp-controller="Account" asp-action="Login">Account</a></li>
+    </ul>
+</nav>
+
 <div class="text-center">
     <h1 class="hand-drawn">INCOGNITO READS</h1>
     <h2 class="hand-drawn">UNDER CONSTRUCTION</h2>
@@ -22,7 +28,31 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        height: 80vh;
         background-color: white;
+    }
+    
+    .main-nav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+        color: #007bff;
     }
 </style>

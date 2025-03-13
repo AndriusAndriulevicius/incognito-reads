@@ -96,4 +96,3 @@ C:\Users\andri\Desktop\IncognitoReads\IncognitoReads\obj\Debug\net9.0\refint\Inc
 C:\Users\andri\Desktop\IncognitoReads\IncognitoReads\obj\Debug\net9.0\IncognitoReads.pdb
 C:\Users\andri\Desktop\IncognitoReads\IncognitoReads\obj\Debug\net9.0\IncognitoReads.genruntimeconfig.cache
 C:\Users\andri\Desktop\IncognitoReads\IncognitoReads\obj\Debug\net9.0\ref\IncognitoReads.dll
-C:\Users\andri\Desktop\IncognitoReads\IncognitoReads\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
