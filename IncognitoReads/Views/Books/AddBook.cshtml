@@ -1,0 +1,37 @@
+@model IncognitoReads.Models.BookViewModel
+
+<div class="add-book-container">
+    <h2>Add a New Book</h2>
+    <form asp-action="AddBook" method="post">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label asp-for="Author">Author</label>
+            <input asp-for="Author" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Genre">Genre</label>
+            <select asp-for="Genre" class="form-control">
+                <option value="">Select Genre</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Biography">Biography</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Status">Status</label>
+            <select asp-for="Status" class="form-control">
+                <option value="To Read">To Read</option>
+                <option value="Reading">Reading</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Book</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

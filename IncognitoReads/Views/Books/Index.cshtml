@@ -1,0 +1,40 @@
+@model IncognitoReads.Models.LibraryViewModel
+
+<div class="container">
+    <h1>My Library</h1>
+    
+    <div class="book-grid">
+        @foreach (var book in Model.Books)
+        {
+            <div class="book-card">
+                <h2>@book.Title</h2>
+                <p>by @book.Author</p>
+                <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">View Details</a>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .book-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>

@@ -1,15 +1,75 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using IncognitoReads.Models;
+using System.Collections.Concurrent;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace IncognitoReads.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
+        
+        // In-memory user storage (replace with database in production)
+        private static ConcurrentDictionary<string, RegisterViewModel> _users = new ConcurrentDictionary<string, RegisterViewModel>();
 
         public AccountController(ILogger<AccountController> logger)
         {
             _logger = logger;
+        }
+        
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Check if username already exists
+            if (_users.ContainsKey(model.Username))
+            {
+                ModelState.AddModelError("Username", "Username is already taken.");
+                return View(model);
+            }
+
+            // Check if passwords match
+            if (model.Password != model.ConfirmPassword)
+            {
+                ModelState.AddModelError("ConfirmPassword", "Passwords do not match.");
+                return View(model);
+            }
+
+            // Store user (in a real app, you'd hash the password)
+            _users[model.Username] = model;
+
+            // Create claims for authentication
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, model.Username),
+                new Claim(ClaimTypes.Email, model.Email)
+            };
+
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme, 
+                new ClaimsPrincipal(claimsIdentity),
+                new AuthenticationProperties
+                {
+                    IsPersistent = false
+                });
+
+            return RedirectToAction("Account");
         }
 
         [HttpGet]
@@ -18,39 +78,88 @@ namespace IncognitoReads.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Register()
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Find user by username
+            if (_users.TryGetValue(model.Username, out var user))
+            {
+                // In a real app, use password hashing and proper authentication
+                if (user.Password == model.Password)
+                {
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, user.Username),
+                        new Claim(ClaimTypes.Email, user.Email)
+                    };
+
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme, 
+                        new ClaimsPrincipal(claimsIdentity),
+                        new AuthenticationProperties
+                        {
+                            IsPersistent = model.RememberMe
+                        });
+
+                    return RedirectToAction("Account");
+                }
+            }
+
+            ModelState.AddModelError("", "Invalid username or password");
+            return View(model);
         }
 
-        [HttpPost]
-        public IActionResult Login(LoginViewModel model)
-        {
-            // Simple placeholder for login logic
-            return RedirectToAction("Index", "Home");
-        }
+        public async Task<IActionResult> Account()
+{
+    // Null-safe authentication check
+    if (User?.Identity == null || !User.Identity.IsAuthenticated)
+    {
+        return RedirectToAction("Login");
+    }
+
+    // Null-safe username retrieval
+    var username = User.Identity.Name ?? string.Empty;
+    
+    // Null-safe user lookup
+    if (string.IsNullOrWhiteSpace(username) || 
+        !_users.TryGetValue(username, out var user))
+    {
+        // Log the issue
+        _logger.LogWarning($"User not found or username is empty: {username}");
+
+        // Logout and redirect
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Login");
+    }
+
+    // Create account view model with null-safe defaults
+    var model = new AccountViewModel
+    {
+        Name = username,
+        ProfileImageUrl = "/images/profile-placeholder.jpg",
+        PrimaryEmail = user?.Email ?? string.Empty,
+        EmailAddresses = user?.Email != null 
+            ? new List<string> { user.Email } 
+            : new List<string>(),
+        ConnectedAccounts = new List<ConnectedAccount>()
+    };
+
+    return View(model);
+}
 
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
+        public async Task<IActionResult> Logout()
         {
-            // Simple placeholder for registration logic
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
-    }
-
-    // Simple view models
-    public class LoginViewModel
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public bool RememberMe { get; set; }
-    }
-
-    public class RegisterViewModel
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
     }
 }

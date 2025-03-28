@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8cec99b59e3ccba137892201dc9d1f340553aec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c98355ff370b64106d09b8bdd3ae0bb5076a34ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

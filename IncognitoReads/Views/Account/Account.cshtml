@@ -1,0 +1,48 @@
+@model IncognitoReads.Models.AccountViewModel
+
+<div class="account-container">
+    <h2>My Account</h2>
+    
+    <div class="profile-section">
+        <img src="@Model.ProfileImageUrl" alt="Profile Picture" class="profile-image" />
+        <h3>@Model.Name</h3>
+        <p>Primary Email: @Model.PrimaryEmail</p>
+    </div>
+
+    <div class="email-section">
+        <h4>Email Addresses</h4>
+        <ul>
+            @foreach (var email in Model.EmailAddresses)
+            {
+                <li>@email</li>
+            }
+        </ul>
+    </div>
+
+    <div class="connected-accounts-section">
+        <h4>Connected Accounts</h4>
+        @if (Model.ConnectedAccounts.Any())
+        {
+            <ul>
+                @foreach (var account in Model.ConnectedAccounts)
+                {
+                    <li>
+                        @account.Provider - @account.Email
+                        @if (account.RequiresAction)
+                        {
+                            <span class="badge badge-warning">Action Required</span>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No connected accounts</p>
+        }
+    </div>
+
+    <form asp-action="Logout" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>
