@@ -55,8 +55,8 @@ CREATE TABLE Ivertinimai
 	fk_Knygaid_Knyga integer,
 	CHECK(Balai in ('1', '2', '3', '4', '5')),
 	PRIMARY KEY(id_Ivertinimas),
-	CONSTRAINT Palieka FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojas (id_Vartotojas),
-	CONSTRAINT Ivertinta FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knyga (id_Knyga)
+	CONSTRAINT Palieka FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojai (id_Vartotojas),
+	CONSTRAINT Ivertinta FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knygos (id_Knyga)
 );
 
 CREATE TABLE Parase
@@ -64,7 +64,7 @@ CREATE TABLE Parase
 	fk_Knygaid_Knyga integer,
 	fk_Autoriusid_Autorius integer,
 	PRIMARY KEY(fk_Knygaid_Knyga, fk_Autoriusid_Autorius),
-	CONSTRAINT Parase FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knyga (id_Knyga)
+	CONSTRAINT Parase FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knygos (id_Knyga)
 );
 
 CREATE TABLE Pastebejimai
@@ -73,7 +73,7 @@ CREATE TABLE Pastebejimai
 	id_Pastebejimas integer NOT NULL,
 	fk_Vartotojasid_Vartotojas integer NOT NULL,
 	PRIMARY KEY(id_Pastebejimas),
-	CONSTRAINT Raso FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojas (id_Vartotojas)
+	CONSTRAINT Raso FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojai (id_Vartotojas)
 );
 
 CREATE TABLE Progresai
@@ -84,8 +84,8 @@ CREATE TABLE Progresai
 	fk_Knygaid_Knyga integer,
 	fk_Vartotojasid_Vartotojas integer,
 	PRIMARY KEY(id_Progresas),
-	CONSTRAINT Fiksuojamas FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knyga (id_Knyga),
-	CONSTRAINT Zymi FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojas (id_Vartotojas)
+	CONSTRAINT Fiksuojamas FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knygos (id_Knyga),
+	CONSTRAINT Zymi FOREIGN KEY(fk_Vartotojasid_Vartotojas) REFERENCES Vartotojai (id_Vartotojas)
 );
 
 CREATE TABLE Yra
@@ -93,7 +93,7 @@ CREATE TABLE Yra
 	fk_Knygaid_Knyga integer,
 	fk_Tipasid_Tipas integer,
 	PRIMARY KEY(fk_Knygaid_Knyga, fk_Tipasid_Tipas),
-	CONSTRAINT Yra FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knyga (id_Knyga)
+	CONSTRAINT Yra FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knygos (id_Knyga)
 );
 
 CREATE TABLE Renka
@@ -101,5 +101,5 @@ CREATE TABLE Renka
 	fk_Knygaid_Knyga integer,
 	fk_Pastebejimasid_Pastebejimas integer,
 	PRIMARY KEY(fk_Knygaid_Knyga, fk_Pastebejimasid_Pastebejimas),
-	CONSTRAINT Renka FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knyga (id_Knyga)
+	CONSTRAINT Renka FOREIGN KEY(fk_Knygaid_Knyga) REFERENCES Knygos (id_Knyga)
 );
