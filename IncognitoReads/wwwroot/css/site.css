@@ -19,7 +19,7 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-image: url('/Pictures/Background_1.png');
+    
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
