@@ -2,39 +2,106 @@
 
 <div class="container">
     <h1>My Library</h1>
-    
-    <div class="book-grid">
-        @foreach (var book in Model.Books)
-        {
-            <div class="book-card">
-                <h2>@book.Title</h2>
-                <p>by @book.Author</p>
-                <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">View Details</a>
-            </div>
-        }
+
+    <div class="bookcase-container">
+        <div class="book-grid">
+            @foreach (var book in Model.Books)
+            {
+                <div class="book-card">
+                    <h1>@book.Title</h1>
+                    <p>by @book.Author</p>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-primary">View Details</a>
+                </div>
+            }
+        </div>
     </div>
 </div>
 
 <style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .bookcase-container {
+        background: #2a2118;
+        border: 12px solid #3a3328;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.7);
+        padding: 30px 20px;
+        position: relative;
+        margin-top: 20px;
+    }
+
+
     .book-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
     }
-    
-    .book-card {
-        border: 1px solid #ddd;
-        padding: 15px;
-        text-align: center;
-        border-radius: 5px;
+
+    h1 {
+        font-size: 1.2rem;
+        margin: 0 0 10px 0;
+        color: #fff;
+        position: relative;
     }
-    
+
+    .book-card {
+        /* Structure */
+        width: 200px;
+        min-height: 220px;
+        padding: 20px;
+        margin: 10px;
+        /* Visual Style */
+        background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+        border: 1px solid #444;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+        /* Text */
+        color: #f0f0f0;
+        text-align: center;
+        font-family: 'Segoe UI', sans-serif;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        /* Layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .book-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, rgba(212,175,55,0.8), rgba(212,175,55,0.4));
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(212,175,55,0.2);
+            border-color: rgba(212,175,55,0.4);
+        }
+
     .btn {
         display: inline-block;
         padding: 10px 15px;
-        background-color: #007bff;
+        background-color: #3a1a1a;
         color: white;
         text-decoration: none;
         border-radius: 5px;
+        border-color: #3a1a1a
     }
+
+        .btn:hover {
+            background-color: #3a1a1a;
+            border-color: #3a1a1a
+        }
+
 </style>
