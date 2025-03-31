@@ -1,89 +1,180 @@
 @model IncognitoReads.Models.BookNoteViewModel
 
 <div class="notes-container">
-    <div class="notes-header">
-        <h1>Notes for "@Model.BookTitle"</h1>
-        <a href="@Url.Action("Details", "Books", new { id = Model.BookId })" class="btn btn-secondary">Back to Book</a>
-    </div>
-    
-    <div class="notes-grid">
-        <div class="notes-list">
-            <h2>Your Notes</h2>
-            
-            @if (Model.Notes != null && Model.Notes.Any())
-            {
-                @foreach (var note in Model.Notes)
-                {
-                    <div class="note-card">
-                        <h3>@note.Title</h3>
-                        <p class="date">@note.CreatedAt.ToString("MMM dd, yyyy")</p>
-                        <div class="note-content">@note.Content</div>
-                        
-                        @if (!string.IsNullOrEmpty(note.Citations))
-                        {
-                            <div class="citations">
-                                <h4>Citations</h4>
-                                <ul>
-                                    @foreach (var citation in note.Citations.Split(',', StringSplitOptions.RemoveEmptyEntries))
-                                    {
-                                        <li>@citation.Trim()</li>
-                                    }
-                                </ul>
-                            </div>
-                        }
-                        
-                        @if (!string.IsNullOrEmpty(note.Links))
-                        {
-                            <div class="links">
-                                <h4>Links</h4>
-                                <ul>
-                                    @foreach (var link in note.Links.Split(',', StringSplitOptions.RemoveEmptyEntries))
-                                    {
-                                        <li><a href="@link.Trim()" target="_blank">@link.Trim()</a></li>
-                                    }
-                                </ul>
-                            </div>
-                        }
-                    </div>
-                }
-            }
-            else
-            {
-                <p>No notes yet. Add your first note!</p>
-            }
+    <div class="rectangle">
+        <div class="notes-header">
+            <h1>Notes for "@Model.BookTitle"</h1>
+
         </div>
-        
-        <div class="new-note">
-            <h2>Add New Note</h2>
-            <form asp-action="SaveNote" asp-controller="Books" method="post">
-                <input type="hidden" name="BookId" value="@Model.BookId" />
-                
-                <div class="form-group">
-                    <label for="Title">Title</label>
-                    <input type="text" id="Title" name="Title" class="form-control" required />
-                </div>
-                
-                <div class="form-group">
-                    <label for="Content">Content</label>
-                    <textarea id="Content" name="Content" class="form-control" rows="5" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Citations (comma-separated)</label>
-                    <input type="text" name="Citations" class="form-control" placeholder="Enter citations separated by commas" />
-                </div>
-                
-                <div class="form-group">
-                    <label>Links (comma-separated)</label>
-                    <input type="text" name="Links" class="form-control" placeholder="Enter links separated by commas" />
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Save Note</button>
-            </form>
+
+        <div class="notes-grid">
+            <div class="new-note">
+                <h2>Add New Note</h2>
+                <form asp-action="SaveNote" asp-controller="Books" method="post">
+                    <input type="hidden" name="BookId" value="@Model.BookId" />
+
+                    <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input type="text" id="Title" name="Title" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Content">Content</label>
+                        <textarea id="Content" name="Content" class="form-control" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Citations (comma-separated)</label>
+                        <input type="text" name="Citations" class="form-control" placeholder="Enter citations separated by commas" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Links (comma-separated)</label>
+                        <input type="text" name="Links" class="form-control" placeholder="Enter links separated by commas" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save Note</button>
+                    <a href="@Url.Action("Details", "Books", new { id = Model.BookId })" class="btn btn-secondary">Back to Book</a>
+                </form>
+            </div>
+
+            <div class="notes-list">
+                <h2>Your Notes</h2>
+
+                @if (Model.Notes != null && Model.Notes.Any())
+                {
+                    @foreach (var note in Model.Notes)
+                    {
+                        <div class="note-card">
+                            <h3>@note.Title</h3>
+                            <p class="date">@note.CreatedAt.ToString("MMM dd, yyyy")</p>
+                            <div class="note-content">@note.Content</div>
+
+                            @if (!string.IsNullOrEmpty(note.Citations))
+                            {
+                                <div class="citations">
+                                    <h4>Citations</h4>
+                                    <ul>
+                                        @foreach (var citation in note.Citations.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                        {
+                                            <li>@citation.Trim()</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+                            @if (!string.IsNullOrEmpty(note.Links))
+                            {
+                                <div class="links">
+                                    <h4>Links</h4>
+                                    <ul>
+                                        @foreach (var link in note.Links.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                        {
+                                            <li><a href="@link.Trim()" target="_blank">@link.Trim()</a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No notes yet. Add your first note!</p>
+                }
+            </div>
         </div>
     </div>
 </div>
 
 <style>
     /* Existing CSS remains the same */
+    .rectangle {
+        background-color: #2a211f;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 800px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
+    }
+
+    .notes-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .notes-header {
+        text-align: center;
+        width: 100%; /* Ensure full width for proper centering */
+        margin-bottom: 30px;
+        border-bottom: 2px solid #4a3a35;
+        padding-bottom: 5px; /* Space between text and border */
+        position: relative; /* For pseudo-element approach (alternative) */
+    }
+
+        .notes-header h1 {
+            color: #e0d6d2;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+    .new-note {
+        margin-bottom: 30px;
+        border-radius: 10px;
+        color: #e0d6d2;
+        font-size: 1rem;
+    }
+
+    .form-control {
+        background-color: #4a3a35;
+        border-color: #4a3a35;
+        color: #e0d6d2;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 8px 16px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-radius: 7px;
+    }
+
+    .btn-primary {
+        background-color: #2d1313;
+        border-color: #261010;
+        color: #e0d6d2;
+    }
+
+    .notes-list {
+        color: #e0d6d2;
+        border-bottom: 1px solid #4a3a35;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .note-card {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background-color: #3a2e2a;
+        padding: 12px;
+        border-radius: 5px;
+        border-left: 4px solid #5d4a42;
+        border-bottom: 2px solid #261010;
+        margin-bottom: 10px;
+    }
+
+        .note-card h3 {
+            margin-bottom: 0.2em;
+        }
+
+        .note-card .date {
+            margin-top: 0;
+            font-size: 0.9em;
+            color: #888;
+        }
 </style>
