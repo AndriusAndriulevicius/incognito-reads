@@ -1,0 +1,86 @@
+@model IncognitoReads.Models.BookDetailsViewModel
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-4 text-light">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>@Model.Book.Title</h2>
+            <p><strong>Author:</strong> @Model.Book.Author</p>
+            <p><strong>Genre:</strong> @Model.Book.Genre</p>
+            <p>@Model.Book.Description</p>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-action="EditBook" asp-route-id="@Model.Book.Id" class="btn btn-sm btn-outline-light">Edit Book</a>
+            <form asp-action="Delete" asp-route-id="@Model.Book.Id" method="post" style="display:inline;">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-sm btn-outline-danger">Delete Book</button>
+            </form>
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Display existing reviews -->
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Reviews</h4>
+            @if (Model.Reviews.Any())
+            {
+                foreach (var review in Model.Reviews)
+                {
+                    <div class="card bg-dark mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Rating: @review.Rating / 5</h5>
+                            <p class="card-text">@review.ReviewText</p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Posted by @review.UserId on @review.CreatedAt.ToString("g")
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No reviews yet. Be the first to leave one!</p>
+            }
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Form for adding a new review -->
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Add a Review</h4>
+            <form asp-action="AddReview" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.NewReview.Rating" class="form-label">Rating (1 to 5)</label>
+                    <input asp-for="@Model.NewReview.Rating" class="form-control" />
+                    <span asp-validation-for="@Model.NewReview.Rating" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="@Model.NewReview.ReviewText" class="form-label">Review Text</label>
+                    <textarea asp-for="@Model.NewReview.ReviewText" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.NewReview.ReviewText" class="text-danger"></span>
+                </div>
+
+                <!-- BookId as hidden input -->
+                <input type="hidden" asp-for="@Model.NewReview.BookId" />
+
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

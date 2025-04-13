@@ -1,0 +1,243 @@
+@model IncognitoReads.Models.LibraryViewModel
+
+@{
+    // Ensure a non-null library model.
+    var libraryModel = Model ?? new IncognitoReads.Models.LibraryViewModel();
+    // Set title based on authentication.
+    ViewData["Title"] = User.Identity?.IsAuthenticated == true ? "My Library" : "Home";
+}
+
+@section Styles {
+    <style>
+        /* Bookshelf container styles */
+        .bookshelf-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://media.discordapp.net/attachments/1335989457752428589/1355895907534635039/Background_1.png?ex=67ea97f7&is=67e94677&hm=5785ef95444f1f253270d46aea9e00349bc9dfcd0c3bdc10a9fdf34d74a3f083&=&format=webp&quality=lossless&width=1427&height=864');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* Change overflow so that nothing is clipped */
+            overflow: visible;
+            padding-top: 70px;
+            /* Remove negative margin */
+            margin-left: 0;
+            z-index: 1;
+        }
+
+        /* Shelf styles (decoration) */
+        .shelf {
+            width: 100%;
+            height: 20%;
+            border-bottom: 4px solid #3b2a1f;
+            position: relative;
+            display: flex;
+            padding: 0 10px;
+            z-index: 2;
+        }
+        .shelf::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #25180e;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Book base styling */
+        .book {
+            position: relative;
+            width: 20px; /* Spine thickness */
+            height: 80px; /* Book height */
+            margin-right: 4px;
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 2px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Show the book's title on its spine */
+        .book::before {
+            content: attr(data-title);
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+            /* Vertical text (bottom-to-top) */
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        /* Example color classes for books */
+        .brown   { background-color: #8B4513; }
+        .red     { background-color: #8B0000; }
+        .blue    { background-color: #00008B; }
+        .purple  { background-color: #4B0082; }
+        .green   { background-color: #006400; }
+        .pink    { background-color: #D81B60; }
+        .gray    { background-color: #484848; }
+        .orange  { background-color: #FF8C00; }
+        .black   { background-color: #000000; }
+        .white   { background-color: #FFFFFF; }
+
+        /* Override container styles for library */
+        .container {
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            z-index: 20; /* Ensure the library container overlays the bookshelf */
+            position: relative;
+        }
+    </style>
+}
+
+<!-- Bookshelf Background -->
+<div class="bookshelf-container">
+    <!-- Shelf #1 -->
+    <div class="shelf">
+        <div class="book brown"  data-title="History of Magic"></div>
+        <div class="book red"    data-title="Crimson Tales"></div>
+        <div class="book blue"   data-title="Ocean Dreams"></div>
+        <div class="book brown"  data-title="Forgotten Lore"></div>
+        <div class="book purple" data-title="Midnight Secrets"></div>
+        <div class="book green"  data-title="Forest Whispers"></div>
+        <div class="book red"    data-title="Ruby Shadows"></div>
+        <div class="book blue"   data-title="Sapphire Sky"></div>
+        <div class="book brown"  data-title="Ancient Scrolls"></div>
+        <div class="book purple" data-title="Violet Mist"></div>
+        <div class="book pink"   data-title="Pink Fables"></div>
+        <div class="book gray"   data-title="Shades of Steel"></div>
+    </div>
+
+    <!-- Shelf #2 -->
+    <div class="shelf">
+        <div class="book green"  data-title="Emerald Path"></div>
+        <div class="book brown"  data-title="Leather Bound"></div>
+        <div class="book purple" data-title="Amethyst Dreams"></div>
+        <div class="book red"    data-title="Scarlet Letters"></div>
+        <div class="book blue"   data-title="Azure Mysteries"></div>
+        <div class="book brown"  data-title="Earthen Tales"></div>
+        <div class="book green"  data-title="Verdant Stories"></div>
+        <div class="book red"    data-title="Crimson Nights"></div>
+        <div class="book blue"   data-title="Cobalt Chronicles"></div>
+        <div class="book orange" data-title="Citrus Sunset"></div>
+        <div class="book pink"   data-title="Rose Garden"></div>
+        <div class="book black"  data-title="Dark Horizons"></div>
+    </div>
+
+    <!-- Shelf #3 -->
+    <div class="shelf">
+        <div class="book purple" data-title="Lavender Dreams"></div>
+        <div class="book brown"  data-title="Rustic Legends"></div>
+        <div class="book blue"   data-title="Indigo Depths"></div>
+        <div class="book red"    data-title="Garnet Secrets"></div>
+        <div class="book green"  data-title="Jade Whispers"></div>
+        <div class="book brown"  data-title="Mahogany Memories"></div>
+        <div class="book purple" data-title="Plum Enchantments"></div>
+        <div class="book red"    data-title="Blood Moon"></div>
+        <div class="book blue"   data-title="Cerulean Spells"></div>
+        <div class="book gray"   data-title="Silvery Dusk"></div>
+        <div class="book orange" data-title="Tangerine Glow"></div>
+        <div class="book green"  data-title="Evergreen Tales"></div>
+        <div class="book purple" data-title="Mystic Orchid"></div>
+        <div class="book brown"  data-title="Coffee Tales"></div>
+        <div class="book green"  data-title="Olive Riddles"></div>
+        <div class="book pink"   data-title="Summer Hues"></div>
+        <div class="book red"    data-title="Crimson Dawn"></div>
+        <div class="book gray"   data-title="Graphite Secrets"></div>
+        <div class="book blue"   data-title="Midnight Tides"></div>
+        <div class="book orange" data-title="Sunkissed Scrolls"></div>
+        <div class="book purple" data-title="Violet Visions"></div>
+        <div class="book brown"  data-title="Cocoa Chronicles"></div>
+        <div class="book red"    data-title="Ruby Rivers"></div>
+        <div class="book green"  data-title="Hunter's Moon"></div>
+    </div>
+
+    <!-- Shelf #4 -->
+    <div class="shelf">
+        <div class="book black"  data-title="Nightshade"></div>
+        <div class="book white"  data-title="Blank Pages"></div>
+        <div class="book purple" data-title="Royalty's Curse"></div>
+        <div class="book red"    data-title="Ember Chronicles"></div>
+        <div class="book blue"   data-title="Frozen Depths"></div>
+        <div class="book pink"   data-title="Cotton Candy"></div>
+        <div class="book gray"   data-title="Stormy Seas"></div>
+        <div class="book green"  data-title="Vineyard Vows"></div>
+        <div class="book orange" data-title="Amber Waves"></div>
+        <div class="book brown"  data-title="Woodland Myths"></div>
+        <div class="book red"    data-title="Fired Heart"></div>
+        <div class="book blue"   data-title="Skies of Wonder"></div>
+        <div class="book purple" data-title="Mystic Orchid"></div>
+        <div class="book brown"  data-title="Coffee Tales"></div>
+        <div class="book green"  data-title="Olive Riddles"></div>
+        <div class="book pink"   data-title="Summer Hues"></div>
+        <div class="book red"    data-title="Crimson Dawn"></div>
+        <div class="book gray"   data-title="Graphite Secrets"></div>
+    </div>
+
+    <!-- Shelf #5 -->
+    <div class="shelf">
+        <div class="book purple" data-title="Mystic Orchid"></div>
+        <div class="book brown"  data-title="Coffee Tales"></div>
+        <div class="book green"  data-title="Olive Riddles"></div>
+        <div class="book pink"   data-title="Summer Hues"></div>
+        <div class="book red"    data-title="Crimson Dawn"></div>
+        <div class="book gray"   data-title="Graphite Secrets"></div>
+        <div class="book blue"   data-title="Midnight Tides"></div>
+        <div class="book orange" data-title="Sunkissed Scrolls"></div>
+        <div class="book purple" data-title="Violet Visions"></div>
+        <div class="book brown"  data-title="Cocoa Chronicles"></div>
+        <div class="book red"    data-title="Ruby Rivers"></div>
+        <div class="book green"  data-title="Hunter's Moon"></div>
+    </div>
+</div>
+
+<!-- Overlay My Library Section for Logged-In Users -->
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="container mt-4">
+        @if (libraryModel.Books != null && libraryModel.Books.Count > 0)
+        {
+            <div class="row">
+                @foreach (var book in libraryModel.Books)
+                {
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                        <div class="card text-light bg-dark h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">@book.Title</h5>
+                                <h6 class="card-subtitle mb-3 text-muted">@book.Author</h6>
+                                <p class="card-text">@book.Description</p>
+                                <p class="card-text">
+                                    <small class="text-muted">Genre: @book.Genre</small>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">Added: @book.DateAdded.ToShortDateString()</small>
+                                </p>
+                                <div class="mt-auto">
+                                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-outline-light me-2">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        // Additional scripts if needed.
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

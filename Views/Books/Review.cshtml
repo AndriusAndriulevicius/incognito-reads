@@ -1,0 +1,34 @@
+@model IncognitoReads.Models.ReviewViewModel
+
+@{
+    ViewData["Title"] = "Write a Book Review";
+}
+
+<h2>Write a Book Review</h2>
+<form asp-controller="Books" asp-action="SubmitReview" method="post" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+        <label asp-for="BookTitle" class="form-label">Book Title</label>
+        <input asp-for="BookTitle" class="form-control" placeholder="Enter Book Title" />
+        <span asp-validation-for="BookTitle" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Genre" class="form-label">Genre</label>
+        <input asp-for="Genre" class="form-control" placeholder="Enter Genre" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="CoverImage" class="form-label">Book Cover Photo</label>
+        <input asp-for="CoverImage" type="file" class="form-control" />
+        <span asp-validation-for="CoverImage" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="ReviewText" class="form-label">Review</label>
+        <textarea asp-for="ReviewText" class="form-control" rows="5" placeholder="Write your review here"></textarea>
+        <span asp-validation-for="ReviewText" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
