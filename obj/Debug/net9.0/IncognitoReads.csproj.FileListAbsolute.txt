@@ -286,3 +286,4 @@ C:\Users\andri\Downloads\incognito-reads-main\obj\Debug\net9.0\refint\IncognitoR
 C:\Users\andri\Downloads\incognito-reads-main\obj\Debug\net9.0\IncognitoReads.pdb
 C:\Users\andri\Downloads\incognito-reads-main\obj\Debug\net9.0\IncognitoReads.genruntimeconfig.cache
 C:\Users\andri\Downloads\incognito-reads-main\obj\Debug\net9.0\ref\IncognitoReads.dll
+C:\Users\andri\Downloads\incognito-reads-main\obj\Debug\net9.0\IncognitoReads.sourcelink.json
