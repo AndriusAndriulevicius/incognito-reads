@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png",
+      "PackagePath": "staticwebassets\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png"
+    },
+    {
+      "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png",
+      "PackagePath": "staticwebassets\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png"
+    },
+    {
+      "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png",
+      "PackagePath": "staticwebassets\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png"
+    },
+    {
+      "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png",
+      "PackagePath": "staticwebassets\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png"
+    },
+    {
+      "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\profiles\\aa.png",
+      "PackagePath": "staticwebassets\\images\\profiles\\aa.png"
+    },
+    {
       "Id": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace IncognitoReads.Models
 {
@@ -19,5 +20,8 @@ namespace IncognitoReads.Models
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; } = string.Empty;
+
+        // 1) Default profilio nuotraukos URL
+        public string ProfileImageUrl { get; set; } = "/images/profile-placeholder.jpg";
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7b94a88cf8c4bdc83110f58ed7114aca43922c0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23c796719b00425b06ac4f55e3096a3ad416772d")]
 [assembly: System.Reflection.AssemblyProductAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IncognitoReads")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

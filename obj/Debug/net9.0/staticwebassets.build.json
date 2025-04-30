@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4+drG8vd4S84MmugzyBZw89OQIixDPHoWtsGVY2KGw8=",
+  "Hash": "ZgIlxhcwK0t3GYAl9PFeJJYdmvDldwcEMafZFHP24ps=",
   "Source": "IncognitoReads",
   "BasePath": "_content/IncognitoReads",
   "Mode": "Default",
@@ -1443,6 +1443,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png",
+      "SourceId": "IncognitoReads",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\",
+      "BasePath": "_content/IncognitoReads",
+      "RelativePath": "images/covers/286863f1-dd6b-425e-aa82-8460051d7143#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qkydp0x4v1",
+      "Integrity": "SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png"
+    },
+    {
+      "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png",
+      "SourceId": "IncognitoReads",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\",
+      "BasePath": "_content/IncognitoReads",
+      "RelativePath": "images/covers/5e649410-9cd6-4ba2-b2fa-7aca23907a71#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "s4umyn26kh",
+      "Integrity": "DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png"
+    },
+    {
+      "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png",
+      "SourceId": "IncognitoReads",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\",
+      "BasePath": "_content/IncognitoReads",
+      "RelativePath": "images/covers/cfb2c750-1f3a-482a-b6f1-0a8d90b926ff#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hvriy9xxaa",
+      "Integrity": "YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png"
+    },
+    {
+      "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png",
+      "SourceId": "IncognitoReads",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\",
+      "BasePath": "_content/IncognitoReads",
+      "RelativePath": "images/covers/e6fb3467-48d4-49f3-8bd5-f118fac6a7f3#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "te3mf4tcth",
+      "Integrity": "xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png"
+    },
+    {
+      "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\profiles\\aa.png",
+      "SourceId": "IncognitoReads",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\",
+      "BasePath": "_content/IncognitoReads",
+      "RelativePath": "images/profiles/aa#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qfya8loq1j",
+      "Integrity": "1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profiles\\aa.png"
     },
     {
       "Identity": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\js\\site.js",
@@ -3320,6 +3425,416 @@
         {
           "Name": "integrity",
           "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/286863f1-dd6b-425e-aa82-8460051d7143.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34846"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:07:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/286863f1-dd6b-425e-aa82-8460051d7143.qkydp0x4v1.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\286863f1-dd6b-425e-aa82-8460051d7143.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34846"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:07:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qkydp0x4v1"
+        },
+        {
+          "Name": "label",
+          "Value": "images/covers/286863f1-dd6b-425e-aa82-8460051d7143.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/5e649410-9cd6-4ba2-b2fa-7aca23907a71.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22929"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:12:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/5e649410-9cd6-4ba2-b2fa-7aca23907a71.s4umyn26kh.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22929"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:12:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s4umyn26kh"
+        },
+        {
+          "Name": "label",
+          "Value": "images/covers/5e649410-9cd6-4ba2-b2fa-7aca23907a71.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.hvriy9xxaa.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148618"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:08:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hvriy9xxaa"
+        },
+        {
+          "Name": "label",
+          "Value": "images/covers/cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "148618"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:08:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139693"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:14:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0="
+        }
+      ]
+    },
+    {
+      "Route": "images/covers/e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.te3mf4tcth.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\covers\\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139693"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 19:14:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "te3mf4tcth"
+        },
+        {
+          "Name": "label",
+          "Value": "images/covers/e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0="
+        }
+      ]
+    },
+    {
+      "Route": "images/profiles/aa.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\profiles\\aa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60217"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 18:56:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc="
+        }
+      ]
+    },
+    {
+      "Route": "images/profiles/aa.qfya8loq1j.png",
+      "AssetFile": "C:\\Users\\andri\\Downloads\\incognito-reads-main\\wwwroot\\images\\profiles\\aa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60217"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 30 Apr 2025 18:56:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qfya8loq1j"
+        },
+        {
+          "Name": "label",
+          "Value": "images/profiles/aa.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc="
         }
       ]
     },

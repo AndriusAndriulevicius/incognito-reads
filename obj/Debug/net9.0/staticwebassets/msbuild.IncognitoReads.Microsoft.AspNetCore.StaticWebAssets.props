@@ -36,6 +36,96 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\286863f1-dd6b-425e-aa82-8460051d7143.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IncognitoReads</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IncognitoReads</BasePath>
+      <RelativePath>images/covers/286863f1-dd6b-425e-aa82-8460051d7143.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>qkydp0x4v1</Fingerprint>
+      <Integrity>SrlHF4XQfOZt2fyXj6Owr7LifcJ7ZvBY3j/kA9SdR3g=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\286863f1-dd6b-425e-aa82-8460051d7143.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IncognitoReads</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IncognitoReads</BasePath>
+      <RelativePath>images/covers/5e649410-9cd6-4ba2-b2fa-7aca23907a71.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>s4umyn26kh</Fingerprint>
+      <Integrity>DAA40wkikD5beWyIZCmkKqwwAmAgAlfP6ZnhpeyjH/w=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\5e649410-9cd6-4ba2-b2fa-7aca23907a71.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IncognitoReads</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IncognitoReads</BasePath>
+      <RelativePath>images/covers/cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>hvriy9xxaa</Fingerprint>
+      <Integrity>YyyCE8Eaq7mGEk/7Tyx6Aap0N88Nt5FpmWLj0D/N194=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\cfb2c750-1f3a-482a-b6f1-0a8d90b926ff.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IncognitoReads</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IncognitoReads</BasePath>
+      <RelativePath>images/covers/e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>te3mf4tcth</Fingerprint>
+      <Integrity>xYnLGjwnUSsCxe7vuMEcEHQBupUxJwE9zbYChId/Aj0=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\covers\e6fb3467-48d4-49f3-8bd5-f118fac6a7f3.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\aa.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>IncognitoReads</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/IncognitoReads</BasePath>
+      <RelativePath>images/profiles/aa.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>qfya8loq1j</Fingerprint>
+      <Integrity>1kgdxkeR4ZAah0fvA1TH72RswucrYPVQOMmT3uCNTxc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\aa.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\IncognitoReads.z34wpb1ujd.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>IncognitoReads</SourceId>

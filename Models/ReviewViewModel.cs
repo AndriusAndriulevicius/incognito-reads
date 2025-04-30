@@ -6,7 +6,8 @@ namespace IncognitoReads.Models
 {
     public class ReviewViewModel
     {
-        // This property links the review to the created book record.
+        public int Id { get; set; }
+
         public int BookId { get; set; }
 
         [Required(ErrorMessage = "Book title is required")]
@@ -20,7 +21,7 @@ namespace IncognitoReads.Models
         public string ReviewText { get; set; } = string.Empty;
 
         [Range(1, 5, ErrorMessage = "Please provide a rating between 1 and 5")]
-        public int Rating { get; set; }  // New Rating property
+        public int Rating { get; set; }
 
         public DateTime CreatedAt { get; set; }
 

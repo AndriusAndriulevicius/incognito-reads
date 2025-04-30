@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using IncognitoReads.Models;
 
 namespace IncognitoReads.Controllers
@@ -10,57 +12,85 @@ namespace IncognitoReads.Controllers
     [Authorize]
     public class BooksController : Controller
     {
-        // In‑memory collection for demo purposes.
-        // In production, use a database.
-        private static List<AddBookViewModel> _allBooks = new List<AddBookViewModel>();
+        private readonly IWebHostEnvironment _env;
 
-        // In‑memory collection for reviews.
-        private static List<ReviewViewModel> _allReviews = new List<ReviewViewModel>();
+        // In-memory storage (for demo only)
+        private static readonly List<AddBookViewModel> _allBooks   = new();
+        private static readonly List<ReviewViewModel>  _allReviews = new();
+
+        public BooksController(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
+
+        // ─── ADD BOOK ─────────────────────────────────────────────────────────────
 
         [HttpGet]
         public IActionResult AddBook()
-        {
-            return View();
-        }
+            => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddBook(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
+
+            // Save uploaded cover (if any)
+            if (model.CoverImage != null && model.CoverImage.Length > 0)
+            {
+                var coversDir = Path.Combine(_env.WebRootPath, "images", "covers");
+                if (!Directory.Exists(coversDir))
+                    Directory.CreateDirectory(coversDir);
+
+                var ext      = Path.GetExtension(model.CoverImage.FileName);
+                var fileName = $"{Guid.NewGuid()}{ext}";
+                var filePath = Path.Combine(coversDir, fileName);
+
+                using var fs = new FileStream(filePath, FileMode.Create);
+                model.CoverImage.CopyTo(fs);
+
+                model.CoverImageUrl = $"/images/covers/{fileName}";
+            }
+            else
+            {
+                model.CoverImageUrl = "/images/covers/default-cover.png";
             }
 
-            model.UserId = User.Identity?.Name ?? "";
+            model.UserId    = User.Identity?.Name ?? "";
             model.DateAdded = DateTime.Now;
-            model.Id = _allBooks.Count > 0 ? _allBooks.Max(b => b.Id) + 1 : 1;
+            model.Id        = _allBooks.Any() ? _allBooks.Max(b => b.Id) + 1 : 1;
             _allBooks.Add(model);
 
-            return RedirectToAction("MyLibrary");
+            return RedirectToAction(nameof(MyLibrary));
         }
+
+        // ─── MY LIBRARY ────────────────────────────────────────────────────────────
 
         [HttpGet]
         public IActionResult MyLibrary()
         {
-            var userId = User.Identity?.Name ?? "";
+            var userId    = User.Identity?.Name ?? "";
             var userBooks = _allBooks
                 .Where(b => b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
-            var viewModel = new LibraryViewModel { Books = userBooks };
-            return View(viewModel);
+            return View(new LibraryViewModel { Books = userBooks });
         }
+
+        // ─── EDIT BOOK ─────────────────────────────────────────────────────────────
 
         [HttpGet]
         public IActionResult EditBook(int id)
         {
             var userId = User.Identity?.Name ?? "";
-            var book = _allBooks.FirstOrDefault(b => b.Id == id && b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+            var book = _allBooks.FirstOrDefault(b =>
+                b.Id == id &&
+                b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+
             if (book == null)
-            {
                 return NotFound();
-            }
+
             return View(book);
         }
 
@@ -69,144 +99,137 @@ namespace IncognitoReads.Controllers
         public IActionResult EditBook(AddBookViewModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             var userId = User.Identity?.Name ?? "";
-            var book = _allBooks.FirstOrDefault(b => b.Id == model.Id && b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+            var book = _allBooks.FirstOrDefault(b =>
+                b.Id == model.Id &&
+                b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+
             if (book == null)
-            {
                 return NotFound();
-            }
 
-            book.Title = model.Title;
-            book.Author = model.Author;
-            book.Genre = model.Genre;
+            // Update fields
+            book.Title       = model.Title;
+            book.Author      = model.Author;
+            book.Genre       = model.Genre;
             book.Description = model.Description;
-            book.Color = model.Color;
+            book.Color       = model.Color;
+            book.Notes       = model.Notes;
 
-            if (model.CoverImage != null)
+            // Handle new cover upload
+            if (model.CoverImage != null && model.CoverImage.Length > 0)
             {
-                // Image upload handling would occur here in a real app.
-                book.CoverImage = model.CoverImage;
+                var coversDir = Path.Combine(_env.WebRootPath, "images", "covers");
+                if (!Directory.Exists(coversDir))
+                    Directory.CreateDirectory(coversDir);
+
+                var ext      = Path.GetExtension(model.CoverImage.FileName);
+                var fileName = $"{Guid.NewGuid()}{ext}";
+                var filePath = Path.Combine(coversDir, fileName);
+
+                using var fs = new FileStream(filePath, FileMode.Create);
+                model.CoverImage.CopyTo(fs);
+
+                book.CoverImageUrl = $"/images/covers/{fileName}";
             }
 
-            return RedirectToAction("MyLibrary");
+            return RedirectToAction(nameof(MyLibrary));
         }
+
+        // ─── DELETE BOOK ───────────────────────────────────────────────────────────
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             var userId = User.Identity?.Name ?? "";
-            var book = _allBooks.FirstOrDefault(b => b.Id == id && b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+            var book = _allBooks.FirstOrDefault(b =>
+                b.Id == id &&
+                b.UserId.Equals(userId, StringComparison.OrdinalIgnoreCase));
+
             if (book != null)
-            {
                 _allBooks.Remove(book);
-                _allReviews.RemoveAll(r => r.BookId == book.Id);
-            }
-            return RedirectToAction("MyLibrary");
+
+            return RedirectToAction(nameof(MyLibrary));
         }
+
+        // ─── BOOK DETAILS ──────────────────────────────────────────────────────────
 
         [HttpGet]
         public IActionResult BookDetails(int id)
         {
             var book = _allBooks.FirstOrDefault(b => b.Id == id);
             if (book == null)
-            {
                 return NotFound();
-            }
 
+            // Load reviews for this book
             var reviewsForBook = _allReviews
                 .Where(r => r.BookId == id)
                 .OrderByDescending(r => r.CreatedAt)
                 .ToList();
 
-            var viewModel = new BookDetailsViewModel
-            {
-                Book = book,
-                Reviews = reviewsForBook,
-                NewReview = new ReviewViewModel { BookId = book.Id }
-            };
-
-            return View(viewModel);
+            // Optionally, you could pass both Book and Reviews in a combined ViewModel.
+            ViewBag.Reviews = reviewsForBook;
+            return View(book);
         }
 
-        // Existing AddReview used on the BookDetails page remains unchanged.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult AddReview(ReviewViewModel model)
-        {
-            var userId = User.Identity?.Name ?? "";
-            var book = _allBooks.FirstOrDefault(b => b.Id == model.BookId);
-            if (book == null)
-            {
-                return NotFound();
-            }
+        // ─── WRITE A REVIEW ────────────────────────────────────────────────────────
 
-            if (!ModelState.IsValid)
-            {
-                var reviewsForBook = _allReviews
-                    .Where(r => r.BookId == model.BookId)
-                    .OrderByDescending(r => r.CreatedAt)
-                    .ToList();
-
-                var viewModel = new BookDetailsViewModel
-                {
-                    Book = book,
-                    Reviews = reviewsForBook,
-                    NewReview = model
-                };
-
-                return View("BookDetails", viewModel);
-            }
-
-            model.UserId = userId;
-            model.CreatedAt = DateTime.Now;
-            model.BookId = _allReviews.Count > 0 ? _allReviews.Max(r => r.BookId) + 1 : 1;
-            _allReviews.Add(model);
-
-            return RedirectToAction("BookDetails", new { id = model.BookId });
-        }
-
-        // New GET action to serve the review form page.
         [HttpGet]
         public IActionResult Review()
         {
-            return View();
+            return View(new ReviewViewModel());
         }
 
-        // New POST action to handle submission from the standalone review page.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SubmitReview(ReviewViewModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return View("Review", model);
+
+            // 1) Save cover image from review (to use for the new book)
+            string coverUrl;
+            if (model.CoverImage != null && model.CoverImage.Length > 0)
+            {
+                var coversDir = Path.Combine(_env.WebRootPath, "images", "covers");
+                if (!Directory.Exists(coversDir))
+                    Directory.CreateDirectory(coversDir);
+
+                var ext      = Path.GetExtension(model.CoverImage.FileName);
+                var fileName = $"{Guid.NewGuid()}{ext}";
+                var filePath = Path.Combine(coversDir, fileName);
+
+                using var fs = new FileStream(filePath, FileMode.Create);
+                model.CoverImage.CopyTo(fs);
+
+                coverUrl = $"/images/covers/{fileName}";
+            }
+            else
+            {
+                coverUrl = "/images/covers/default-cover.png";
             }
 
-            // Create a new book record using the review's book details.
+            // 2) Create the book from the review data
             var newBook = new AddBookViewModel
             {
-                Id = _allBooks.Count > 0 ? _allBooks.Max(b => b.Id) + 1 : 1,
-                Title = model.BookTitle,
-                Genre = model.Genre,
-                CoverImage = model.CoverImage,
-                DateAdded = DateTime.Now,
-                UserId = User.Identity?.Name ?? ""
+                Id            = _allBooks.Any() ? _allBooks.Max(b => b.Id) + 1 : 1,
+                Title         = model.BookTitle,
+                Genre         = model.Genre,
+                CoverImageUrl = coverUrl,
+                DateAdded     = DateTime.Now,
+                UserId        = User.Identity?.Name ?? ""
             };
             _allBooks.Add(newBook);
 
-            // Associate the review with the newly created book.
-            model.BookId = newBook.Id;
-            model.UserId = User.Identity?.Name ?? "";
+            // 3) Create and store the review
+            model.BookId    = newBook.Id;
+            model.UserId    = User.Identity?.Name ?? "";
             model.CreatedAt = DateTime.Now;
-            model.BookId = _allReviews.Count > 0 ? _allReviews.Max(r => r.BookId) + 1 : 1;
+            model.Id        = _allReviews.Any() ? _allReviews.Max(r => r.Id) + 1 : 1;
             _allReviews.Add(model);
 
-            // After submission, redirect the user to view the book details along with its review.
             return RedirectToAction("BookDetails", new { id = newBook.Id });
         }
     }
