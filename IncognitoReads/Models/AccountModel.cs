@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace IncognitoReads.Models
 {
+    // Account viewmodel
     public class AccountViewModel
     {
         public string Name { get; set; } = string.Empty;
@@ -11,6 +12,7 @@ namespace IncognitoReads.Models
         public List<ConnectedAccount> ConnectedAccounts { get; set; } = new List<ConnectedAccount>();
     }
 
+    //Connected accounts
     public class ConnectedAccount
     {
         public string Provider { get; set; } = string.Empty;
