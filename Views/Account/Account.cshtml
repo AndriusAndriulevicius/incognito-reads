@@ -1,0 +1,131 @@
+@model IncognitoReads.Models.AccountViewModel
+
+<div class="account-container">
+    <h2>My Account</h2>
+
+    <!-- 1. Form’a apgaubiam profilio nuotrauką, kad paspaudus atsidarytų failų naršyklė -->
+    <form asp-action="UploadProfilePicture"
+          asp-controller="Account"
+          method="post"
+          enctype="multipart/form-data"
+          class="profile-section">
+        
+        <label for="ProfileImage">
+            <img src="@Model.ProfileImageUrl"
+                 alt="Profile Picture"
+                 class="profile-image" />
+        </label>
+        <input type="file"
+               id="ProfileImage"
+               name="ProfileImage"
+               accept="image/*"
+               style="display: none;"
+               onchange="this.form.submit()" />
+    </form>
+
+    <div class="header-text">
+        <h3>@Model.Name</h3>
+        <p>Primary Email: @Model.PrimaryEmail</p>
+    </div>
+
+    <div class="account-body">
+        <div class="email-section">
+            <h4>Email Addresses</h4>
+            <ul>
+                @foreach (var email in Model.EmailAddresses)
+                {
+                    <li>@email</li>
+                }
+            </ul>
+        </div>
+        <div class="connected-accounts-section">
+            <h4>Connected Accounts</h4>
+            @if (Model.ConnectedAccounts.Any())
+            {
+                <ul>
+                    @foreach (var account in Model.ConnectedAccounts)
+                    {
+                        <li>
+                            @account.Provider – @account.Email
+                            @if (account.RequiresAction)
+                            {
+                                <span class="badge badge-warning">Action Required</span>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No connected accounts</p>
+            }
+        </div>
+    </div>
+
+    <form asp-action="Logout" method="post" class="logout-form">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>
+
+<style>
+    .account-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #1e1e1e;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        overflow: hidden;
+        color: white;
+        padding: 30px;
+    }
+    .profile-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid #e0dddd;
+        background-color: #424242;
+        margin-right: 20px;
+        object-fit: cover;
+    }
+    .header-text h3 {
+        margin: 0 0 5px 0;
+        color: white;
+    }
+    .header-text p {
+        margin: 0;
+        opacity: 0.9;
+        color: #bbdefb;
+    }
+    .account-body { margin-bottom: 20px; }
+    .email-section, .connected-accounts-section { margin-bottom: 20px; }
+    h4 {
+        color: #e0dddd;
+        border-bottom: 1px solid #424242;
+        padding-bottom: 8px;
+    }
+    ul { list-style: none; padding-left: 0; color: #e0dddd; }
+    li { margin-bottom: 5px; }
+    .logout-form { margin-top: 20px; }
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+    }
+    .btn-danger:hover { background-color: #c82333; }
+    .badge-warning {
+        background-color: #ffc107;
+        color: #212529;
+        padding: 3px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+    }
+</style>
