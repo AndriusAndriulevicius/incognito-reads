@@ -1,0 +1,122 @@
+@model IncognitoReads.Models.AddBookViewModel
+@{
+    ViewData["Title"] = "Add Book";
+}
+
+@section Styles {
+    <style>
+        .bookshelf-container {
+            width: 100%;
+            min-height: 100vh;
+            overflow-y: auto;
+            background-image: url('https://media.discordapp.net/attachments/1335989457752428589/1355895907534635039/Background_1.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding-top: 70px;
+            padding-bottom: 100px;
+            margin-left: -20px;
+        }
+        .card {
+            background-color: #25180e;
+            border: 2px solid #3b2a1f;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            margin-top: 30px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.6);
+            text-align: center;
+            padding: 4px 0 !important;
+            font-size: 0.75rem !important;
+            color: #d4c0a1;
+            z-index: 999;
+        }
+    </style>
+}
+
+<div class="bookshelf-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <h2 class="text-center mb-4" style="color: #e27b50;">Add New Book</h2>
+                <form asp-action="AddBook" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Title" style="color: #d4c0a1;">Title</label>
+                        <input asp-for="Title" class="form-control" style="background-color: #1a1412; color: #d4c0a1;" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Author" style="color: #d4c0a1;">Author</label>
+                        <input asp-for="Author" class="form-control" style="background-color: #1a1412; color: #d4c0a1;" />
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Genre" style="color: #d4c0a1;">Genre</label>
+                        <select asp-for="Genre" class="form-control" style="background-color: #1a1412; color: #d4c0a1;">
+                            <option value="">-- Select Genre --</option>
+                            <option>Fantasy</option>
+                            <option>Mystery</option>
+                            <option>Romance</option>
+                            <option>Horror</option>
+                            <option>Science Fiction</option>
+                            <option>Historical</option>
+                            <option>Biography</option>
+                            <option>Poetry</option>
+                            <option>Other</option>
+                        </select>
+                        <span asp-validation-for="Genre" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" style="color: #d4c0a1;">Description</label>
+                        <textarea asp-for="Description" rows="5" class="form-control" style="background-color: #1a1412; color: #d4c0a1;"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="CoverImage" style="color: #d4c0a1;">Cover Image (optional)</label>
+                        <input asp-for="CoverImage" type="file" class="form-control" style="background-color: #1a1412; color: #d4c0a1;" />
+                        <span asp-validation-for="CoverImage" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Color" style="color: #d4c0a1;">Book Color</label>
+                        <select asp-for="Color" class="form-control" style="background-color: #1a1412; color: #d4c0a1;">
+                            <option value="red">Red</option>
+                            <option value="brown">Brown</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="purple">Purple</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group mt-4 text-center">
+                        <button type="submit" class="btn" style="background-color: #5c3836; color: #d4c0a1; padding: 10px 30px;">
+                            Add Book
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $('input[type="file"]').on('change', function(){
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').html(fileName);
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

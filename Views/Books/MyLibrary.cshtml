@@ -1,0 +1,67 @@
+@model IncognitoReads.Models.LibraryViewModel
+@{
+    ViewData["Title"] = "My Library";
+}
+
+<div class="container mt-4">
+    @if (Model.Books != null && Model.Books.Count > 0)
+    {
+        <div class="row">
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="card text-light bg-dark h-100">
+                        
+                        <!-- 1. Čia rodome viršelio paveikslėlį -->
+                        <img src="@book.CoverImageUrl"
+                             class="card-img-top"
+                             alt="Cover of @book.Title"
+                             style="height:200px; object-fit:cover;" />
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@book.Title</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">@book.Author</h6>
+                            
+                            <p class="card-text">@book.Description</p>
+                            
+                            <p class="card-text">
+                                <small class="text-muted">Genre: @book.Genre</small>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">Added: @book.DateAdded.ToShortDateString()</small>
+                            </p>
+                            
+                            <div class="mt-auto">
+                                <a asp-action="BookDetails"
+                                   asp-route-id="@book.Id"
+                                   class="btn btn-sm btn-outline-info me-2">
+                                    View Details
+                                </a>
+                                <a asp-action="EditBook"
+                                   asp-route-id="@book.Id"
+                                   class="btn btn-sm btn-outline-light me-2">
+                                    Edit
+                                </a>
+                                <form asp-action="Delete"
+                                      asp-route-id="@book.Id"
+                                      method="post"
+                                      style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-light text-center">
+            You haven't added any books to your library yet.
+        </p>
+    }
+</div>

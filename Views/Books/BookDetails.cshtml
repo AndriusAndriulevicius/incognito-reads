@@ -1,0 +1,80 @@
+@model IncognitoReads.Models.BookDetailsViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.Book.Title;
+}
+
+<div class="container mt-4">
+    <h2>@Model.Book.Title</h2>
+    <p><em>by @Model.Book.Author</em></p>
+
+    <img src="@Model.Book.CoverImageUrl"
+         alt="Cover of @Model.Book.Title"
+         style="max-width:300px; width:100%; object-fit:cover; margin-bottom:20px;" />
+
+    <p>@Model.Book.Description</p>
+    <p><strong>Genre:</strong> @Model.Book.Genre</p>
+    <p><small>Added on @Model.Book.DateAdded.ToShortDateString()</small></p>
+
+    <hr />
+
+    <h3>Reviews</h3>
+    @if (!Model.Reviews.Any())
+    {
+        <p>No reviews yet.</p>
+    }
+    else
+    {
+        <ul class="list-unstyled">
+        @foreach (var r in Model.Reviews)
+        {
+            <li class="mb-3 p-3 bg-light text-dark rounded">
+                <strong>Rating:</strong> @r.Rating/5<br />
+                <p>@r.ReviewText</p>
+                <small class="text-muted">By @r.UserId on @r.CreatedAt:g</small>
+            </li>
+        }
+        </ul>
+    }
+
+    <hr />
+
+    <h3>Add a Review</h3>
+    <form asp-action="SubmitReview"
+          asp-controller="Books"
+          method="post">
+        @Html.AntiForgeryToken()
+
+        <!-- Hidden field to carry BookId -->
+        <input type="hidden" asp-for="NewReview.BookId" />
+
+        <div class="mb-3">
+            <label asp-for="NewReview.ReviewText" class="form-label">Your Review</label>
+            <textarea asp-for="NewReview.ReviewText"
+                      class="form-control"
+                      rows="4"></textarea>
+            <span asp-validation-for="NewReview.ReviewText"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NewReview.Rating" class="form-label">Rating</label>
+            <select asp-for="NewReview.Rating" class="form-control">
+                <option value="">-- Select Rating --</option>
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <span asp-validation-for="NewReview.Rating"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+
+    @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }
+</div>

@@ -1,0 +1,74 @@
+﻿@model IncognitoReads.Models.LibraryViewModel
+
+@{
+    var libraryModel = Model ?? new IncognitoReads.Models.LibraryViewModel();
+    ViewData["Title"] = User.Identity?.IsAuthenticated == true ? "My Library" : "Home";
+}
+
+@section Styles {
+    <style>
+        /* Banner styles similar to Bookbrowse */
+        .banner {
+            background: url('https://raw.githubusercontent.com/AndriusAndriulevicius/incognito-reads/main/Background_1.png') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .banner h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .banner p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+    </style>
+}
+
+<div class="banner">
+    <div class="container">
+        <h1>Discover, Review &amp; Share Your Favorite Books</h1>
+        <p>Join our community and let your voice be heard.</p>
+        <a asp-controller="Books" asp-action="Review" class="btn btn-primary btn-lg">Write a Review</a>
+    </div>
+</div>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="container mt-4">
+        @if (libraryModel.Books != null && libraryModel.Books.Count > 0)
+        {
+            <div class="row">
+                @foreach (var book in libraryModel.Books)
+                {
+                    <div class="col-md-4" style="margin-bottom: 20px;">
+                        <div style="background-color: #1a1412; border: 1px solid #3b2a1f; border-radius: 5px; padding: 15px;">
+                            <h4 style="color: #e27b50;">@book.Title</h4>
+                            <p style="color: #d4c0a1;"><strong>Author: </strong>@book.Author</p>
+                            <p style="color: #d4c0a1;"><strong>Genre: </strong>@book.Genre</p>
+                            <p style="color: #d4c0a1;">@book.Description</p>
+                            <p style="color: #d4c0a1; font-size: 0.8rem;">Added on: @book.DateAdded.ToLocalTime()</p>
+                            <div class="mt-2">
+                                <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-outline-light me-2">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $('input[type="file"]').on('change', function () {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').html(fileName);
+        });
+    </script>
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
