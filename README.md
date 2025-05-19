@@ -16,7 +16,7 @@ Pirmiausia, įėjus į puslapį, yra matoma pasirinkimų juosta: komandos pavadi
 Jei vartotojas jau turi susikūręs paskyrą, jam reikia pasirinkti mygtuką **"LOGIN"**, kuris leidžia prisijungti prie svetainės ir paskyroje esančių knygų.
 
 #### Knygos pridėjimas
-Norint pridėti ir pildyti knygas yra pasirenkamas viršuje esantis mygtukas **"ADD BOOK"**. Atsiveria knygos anketa, kurią reikia užpildyti. Baigus pildyti informaciją apie knygą yra paspaudžiamas apačioje esantis migtukas "Add Book". Taip yra sukuriama knyga, kurią galima rasti **"MY LIBRARY"** bibliotekoje. **"MY LIBRARY"** bibliotekoje bus laikomos visos knygos, kurias sukuria vartotojas. Šias knygas, bet kokiu metu, galima pašalinti, redaguoti, keisti ar pridėti naują.
+Norint pridėti ir pildyti knygas yra pasirenkamas viršuje esantis mygtukas **"ADD BOOK"**. Atsiveria knygos anketa, kurią reikia užpildyti. Baigus pildyti informaciją apie knygą yra paspaudžiamas apačioje esantis mygtukas "Add Book". Taip yra sukuriama knyga, kurią galima rasti **"MY LIBRARY"** bibliotekoje. **"MY LIBRARY"** bibliotekoje bus laikomos visos knygos, kurias sukuria vartotojas. Šias knygas, bet kokiu metu, galima pašalinti, redaguoti, keisti ar pridėti naują.
 
 ![image](https://github.com/user-attachments/assets/2b3f4500-2e61-4afd-bed3-4b265817e005)
 
