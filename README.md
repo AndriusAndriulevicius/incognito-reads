@@ -4,9 +4,9 @@
 Tai yra internetinis puslapis, kuris leidžia skaitytojui sekti knygų skaitymą. Virtuali skaitymo progreso biblioteka, kuri laiko visą skaitytojo nurodytą informaciją, kaip knygos pavadinimas, autorius, puslapių skaičius, knygos įvertinimas, knygos žanras, patikusios knygos ištraukos.
 
 ## Kaip naudotis
-Norint pradėti pildyti savo paskyrą knygomis ir užrašais reikia atlikti kelis žignsnius.
-#### Paskyros sukurimas
-Pirmiausia, įėjus į puslapį, matome pasirinkimų juostą: komandos pavadinimą **„IncognitoReads“**, mygtukus **„HOME“**, **„LOGIN“** ir **„REGISTER“**. Pasirenkame būtent šį mygtuką, o atsidariusiame lange „Register“ susikuriame paskyrą.
+Norint pradėti pildyti ir saugoti savo paskyroje knygas ir užrašus reikia atlikti kelis žignsnius.
+#### Paskyros sukūrimas
+Pirmiausia, įėjus į puslapį, yra matoma pasirinkimų juosta: komandos pavadinimas **„IncognitoReads“**, mygtukai: **„HOME“**, **„LOGIN“** ir **„REGISTER“**. Pasirenkame būtent **„REGISTER“** mygtuką, o atsidariusiame lange „Register“ susikuriame paskyrą.
 
 ![image](https://github.com/user-attachments/assets/35bff9de-6cce-41e8-a854-e1f219842ff7)
 
