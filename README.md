@@ -11,6 +11,10 @@ Pirmiausia, įėjus į puslapį, yra matoma pasirinkimų juosta: komandos pavadi
 ![image](https://github.com/user-attachments/assets/35bff9de-6cce-41e8-a854-e1f219842ff7)
 
 ![image](https://github.com/user-attachments/assets/d7c80e59-d37d-4d12-90ba-8df5607c99ce)
+
+#### Prisijungimas prie paskyros
+Jei vartotojas jau turi susikūręs paskyrą, jam reikia pasirinkti mygtuką **„LOGIN“**, kuris leidžia prisijungti prie svetainės ir paskyroje esančių knygų.
+
 #### Knygos pridėjimas
 Susikūrę paskyrą, atsiduriame „My Account“ puslapį – čia galite redaguoti savo profilio informaciją.
 Norint pridėti ir pildyti knygas pasirenkame viršuje esanti mygtuką **"ADD BOOK"**. Atsivers knygos anketa, kuria reikia užpildyti. Biage pildyti paspaudžiame apačioje esanti migtuka "Add Book".
