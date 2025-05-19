@@ -1,7 +1,7 @@
 # Icognito Reads
 
 ## Aprašymas
-Tai yra internetinis puslapis, kuris seka knygų skaitymą. Virtuali skaitymo progreso biblioteka, kuri laiko visą skaitytojo nurodytą informaciją, kaip knygos pavadinimas, autorius, puslapių skaičius, patikusios knygos ištraukos.
+Tai yra internetinis puslapis, kuris leidžia skaitytojui sekti knygų skaitymą. Virtuali skaitymo progreso biblioteka, kuri laiko visą skaitytojo nurodytą informaciją, kaip knygos pavadinimas, autorius, puslapių skaičius, knygos įvertinimas, knygos žanras, patikusios knygos ištraukos.
 
 ## Kaip naudotis
 Norint pradėti pildyti savo paskyrą knygomis ir užrašais reikia atlikti kelis žignsnius.
