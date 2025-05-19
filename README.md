@@ -20,7 +20,7 @@ Norint pridėti ir pildyti knygas yra pasirenkamas viršuje esantis mygtukas **"
 
 ![image](https://github.com/user-attachments/assets/2b3f4500-2e61-4afd-bed3-4b265817e005)
 
-Ir taip pridėjote savo pirmą knygą. 🎊
+Taip pridėjote savo pirmą knygą 🎊
 
 ## Komandos nariai 
 - Andrius Andriulevičius 
